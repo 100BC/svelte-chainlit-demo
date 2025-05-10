@@ -1,12 +1,12 @@
 <script lang="ts">
 	let chatbot: HTMLIFrameElement;
-  const iframeSource = "http://127.0.0.1:8000/"
+	const iframeSource = 'http://127.0.0.1:8000/';
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	function handleMessage(event: MessageEvent<any>) {
 		if (event.data.startsWith('Server: ')) {
 			console.log('Parent window received:', event.data);
-      postMessageToIframe(event.data)
+			postMessageToIframe(event.data);
 		}
 	}
 
@@ -15,7 +15,7 @@
 	}
 </script>
 
-<svelte:window onmessage={handleMessage}></svelte:window>
+<svelte:window onmessage={handleMessage} />
 
 <iframe
 	bind:this={chatbot}
@@ -25,4 +25,3 @@
 	width="100%"
 	height="500px"
 ></iframe>
-
